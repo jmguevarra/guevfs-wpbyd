@@ -7,4 +7,20 @@
     .sec-py{
         @apply py-7 md:py-10 lg:py-16;
     }
+
+    .btn-primary{
+        @apply text-secondary bg-primary px-4 py-2 rounded-md mt-4 inline-block hover:bg-black hover:text-primary transition duration-500
+    }
+
+    .modal-btn--closing {
+        @apply cursor-pointer absolute top-[12px] right-[12px] text-3xl leading-none text-gray-700 hover:text-red-600 transition-transform duration-300;
+    }
+
+    .wp-modal-overlay{
+        @apply fixed inset-0 bg-black bg-opacity-50 flex h-svh w-svw justify-center items-center z-50;
+    }
+
+    .wp-modal-body{
+        @apply bg-white p-6 rounded-lg shadow-lg w-96 transition-all transform relative;
+    }
 }

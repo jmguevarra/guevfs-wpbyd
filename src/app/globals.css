@@ -2,6 +2,7 @@
 
 @import "./styles/base.css";
 @import "./styles/component.css";
+@import "aos/dist/aos.css";
 
 
 @tailwind base;

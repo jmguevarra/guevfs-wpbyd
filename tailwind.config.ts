@@ -37,10 +37,12 @@ export default {
               fontSize: '1.5rem',
               fontWeight: '600',
               color: 'theme("colors.primary")',
+              marginTop: 0,
+              lineHeight: '1.4'
             },
             p: {
               fontSize: '1rem',
-              lineHeight: '1.5',
+              lineHeight: '1.4',
               color: 'var(--foreground)',
             },
             a: {
@@ -66,5 +68,6 @@ export default {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-animated')
   ],
 } satisfies Config;
