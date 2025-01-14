@@ -23,7 +23,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 
   //get Page settings - It could be optimize in future
   useEffect(() => {
-    //switching different enviro
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
     const fetchPageSettings = async () => {
@@ -50,7 +49,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 
   //get all the cars - It could be optimized
   useEffect(() => {
-    //switching different enviro
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
     const fetchCars = async () => {
@@ -76,7 +74,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 
   //get WP Menus - It could be optimize in future
   useEffect(() => {
-    //switching different enviro
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
     const fetchMenus = async () => {
