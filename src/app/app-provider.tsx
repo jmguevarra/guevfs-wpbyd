@@ -31,7 +31,7 @@ const AppProvider: React.FC<Props> = ({ children }) => {
 
     const fetchPageSettings = async () => {
       try {
-        const response = await fetch(`${apiUrl}/v2/pages/47`, {
+        const response = await fetch(`${apiUrl}/wp/v2/pages/47`, {
           //right now its static to save time -- Note change it and create auth
           headers: {
             "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         setPage(data);
       } catch (err) {
         setNotifier({
-          message: `Error on getting Page settings in the ${apiUrl}/wp-json/wp/v2/pages/47`,
+          message: `Error on getting Page settings in the ${apiUrl}/wp/v2/pages/47`,
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });
