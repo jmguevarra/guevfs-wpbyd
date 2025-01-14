@@ -1,9 +1,10 @@
-import WPContext from "@/context/wp-context";
+"use client";
+
+import useWPContext from "@/hooks/usewpcontext";
 import { CarPostType } from "@/types/car-post-type";
-import { useContext } from "react";
 
 const FeaturedCars = () => {
-  const { cars } = useContext(WPContext);
+  const { cars } = useWPContext();
   const featuredCars =
     cars?.filter((car: CarPostType) => car.acf.car_post_options.is_featured) ||
     [];

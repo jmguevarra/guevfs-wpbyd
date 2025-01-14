@@ -1,12 +1,11 @@
 "use client";
 
-import WPContext from "@/context/wp-context";
 import { CarPostType } from "@/types/car-post-type";
 import CarDetails from "../components/car-post-type/car-details";
-import { useContext } from "react";
+import useWPContext from "@/hooks/usewpcontext";
 
 const CarListings = () => {
-  const { cars, setIsModalOpen, setModalContent } = useContext(WPContext);
+  const { cars, setIsModalOpen, setModalContent } = useWPContext();
 
   if (cars.length < 1) {
     return null;

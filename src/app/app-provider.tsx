@@ -22,17 +22,19 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await fetch(`${WPData.apiUrl}/cars`, {
-          headers: {
-            "Content-Type": "application/json",
-            "X-WP-Nonce": WPData.nonce,
-          },
-        });
+        const response = await fetch(
+          `http://localhost/byd/wp-json/wp/v2/cars`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
         setCars(data);
       } catch (err) {
         setNotifier({
-          message: `Error on getting Cars in the ${WPData.apiUrl}/cars`,
+          message: `Error on getting Cars in the http://localhost/byd/wp-json/wp/v2/cars`,
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });

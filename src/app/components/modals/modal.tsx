@@ -1,10 +1,9 @@
 "use client";
 
-import WPContext from "@/context/wp-context";
-import { useContext } from "react";
+import useWPContext from "@/hooks/usewpcontext";
 
 const Modal = () => {
-  const { isModalOpen, setIsModalOpen, modalContent } = useContext(WPContext);
+  const { isModalOpen, setIsModalOpen, modalContent } = useWPContext();
 
   if (!isModalOpen) return null;
 

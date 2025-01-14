@@ -4,13 +4,11 @@
  * 
  */
 
-
 interface IWPMediaDetails {
     width: number;
     height: number;
     file: string;
     filesize: number;
-    sizes: Record<string, any>;
     image_meta: {
       aperture: string;
       credit: string;
@@ -75,7 +73,7 @@ interface IWPMediaObject {
         _acf_changed: boolean;
     };
     class_list: string[];
-    acf: any[]; 
+    acf: unknown; 
     description: RenderedContent;
     caption: RenderedContent;
     alt_text: string;

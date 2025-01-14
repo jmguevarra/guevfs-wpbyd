@@ -1,11 +1,10 @@
 "use client";
 
-import WPContext from "@/context/wp-context";
+import useWPContext from "@/hooks/usewpcontext";
 import { CarPostType } from "@/types/car-post-type";
-import { useContext } from "react";
 
 const LastestCars = () => {
-  const { cars, page } = useContext(WPContext);
+  const { cars, page } = useWPContext();
   const lastestCars = cars?.slice(
     0,
     page.acf?.page_settings.no_of_lastest_cars ?? 1
