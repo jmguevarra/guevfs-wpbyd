@@ -21,6 +21,32 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [menus, setMenus] = useState<IMenu[]>([]);
 
+  //get Page settings
+  useEffect(() => {
+    const fetchPageSettings = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost/byd/wp-json/wp/v2/pages/47`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        setPage(data);
+      } catch (err) {
+        setNotifier({
+          message: `Error on getting Page settings in the http://localhost/byd/wp-json/wp/v2/pages/47`,
+          status: MESSAGE_STATUSES.WARNING,
+          data: err,
+        });
+      }
+    };
+
+    fetchPageSettings();
+  }, []);
+
   //get all the cars
   useEffect(() => {
     const fetchCars = async () => {
@@ -41,8 +67,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });
-      } finally {
-        setLoading(false);
       }
     };
 

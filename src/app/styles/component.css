@@ -5,7 +5,7 @@
     }
 
     .sec-py{
-        @apply py-7 md:py-10 lg:py-16;
+        @apply py-7 md:py-14 lg:py-24;
     }
 
     .btn-primary{
