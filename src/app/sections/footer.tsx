@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
     <>
-      <footer className="main-footer bg-gray-800 text-white py-6">
+      <footer className="main-foote py-6 dark:text-gray-300">
         <div className="text-center">
           <p className="m-0 text-sm">
             &copy; {new Date().getFullYear()} Your Company. All Rights Reserved.
