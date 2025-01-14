@@ -3,6 +3,7 @@
 import WPContext from "@/context/wp-context";
 import { MESSAGE_STATUSES } from "@/enums/statuses.enum";
 import { CarPostType } from "@/types/car-post-type";
+import { IMenu } from "@/types/imenus";
 import { Notifier } from "@/types/notifier";
 import { PagePostType } from "@/types/page-post-type";
 import React, { useState, useEffect, ReactNode } from "react";
@@ -18,7 +19,9 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState<React.ReactNode>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const [menus, setMenus] = useState<IMenu[]>([]);
 
+  //get all the cars
   useEffect(() => {
     const fetchCars = async () => {
       try {
@@ -46,6 +49,35 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     fetchCars();
   }, []);
 
+  //get WP Menus
+  useEffect(() => {
+    const fetchMenus = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost/byd/wp-json/guevfs-api/v1/menus`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        setMenus(data);
+        console.log(data);
+      } catch (err) {
+        setNotifier({
+          message: `Error on getting Menus in the hhttp://localhost/byd/wp-json/guevfs-api/v1/menus`,
+          status: MESSAGE_STATUSES.WARNING,
+          data: err,
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMenus();
+  }, []);
+
   return (
     <WPContext.Provider
       value={{
@@ -61,6 +93,8 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         setIsModalOpen,
         modalContent,
         setModalContent,
+        menus,
+        setMenus,
       }}
     >
       {children}

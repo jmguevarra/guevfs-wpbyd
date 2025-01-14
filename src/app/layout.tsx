@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Modal from "./components/modals/modal";
 import AppProvider from "./app-provider";
+import Header from "./sections/header";
+import Footer from "./sections/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +33,9 @@ export default function RootLayout({
       >
         <div className="wp-byd-wrapper prose">
           <AppProvider>
+            <Header></Header>
             {children}
+            <Footer></Footer>
             <Modal></Modal>
           </AppProvider>
         </div>

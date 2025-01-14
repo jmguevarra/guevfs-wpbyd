@@ -1,6 +1,10 @@
 
 @layer components {
-    .menu-item{
-        @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+    .menu-item--link{
+        @apply text-gray-400 hover:text-white px-3 py-2 text-sm transition duration-500;
+    }
+
+    .sec-py{
+        @apply py-7 md:py-10 lg:py-16;
     }
 }

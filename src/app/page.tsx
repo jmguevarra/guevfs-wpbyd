@@ -2,12 +2,10 @@
 
 // import { CarPostType } from "@/types/car-post-type";
 // import SlickBasicSlider from "./components/sliders/slick-basic";
-import Footer from "./sections/footer";
 // import useWPContext from "@/hooks/usewpcontext";
 import CarListings from "./sections/car-listings";
 import FeaturedCars from "./sections/featured-cars";
 import LastestCars from "./sections/lastest-cars";
-import Header from "./sections/header";
 
 const Home = () => {
   // const { cars, page } = useWPContext();
@@ -33,12 +31,10 @@ const Home = () => {
 
   return (
     <>
-      <Header></Header>
       {/* <SlickBasicSlider contents={contents}></SlickBasicSlider> */}
       <FeaturedCars></FeaturedCars>
       <LastestCars></LastestCars>
       <CarListings></CarListings>
-      <Footer></Footer>
     </>
   );
 };

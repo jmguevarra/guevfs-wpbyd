@@ -2,6 +2,7 @@
 
 import useWPContext from "@/hooks/usewpcontext";
 import { CarPostType } from "@/types/car-post-type";
+import Image from "next/image";
 
 const FeaturedCars = () => {
   const { cars } = useWPContext();
@@ -14,17 +15,24 @@ const FeaturedCars = () => {
   }
 
   return (
-    <div className="wp-section featured-section">
+    <div className="wp-section sec-py featured-section">
       <div className="container mx-auto">
         <h2 className="mb-6">Featured Cars</h2>
         <div className="featured-cars grid grid-cols-3 gap-4">
           {featuredCars.map((car: CarPostType, index: number) => (
             <div key={car.id} className="featured-car">
-              <img
-                className="w-full mb-3 h-60 object-cover object-center"
-                src={car.featured_image_url}
-                alt={car.title.rendered}
-              />
+              <div className="next-image-wrapper mb-3 w-full h-60 relative">
+                <Image
+                  className="object-cover object-center"
+                  width={0}
+                  height={0}
+                  layout="fill"
+                  src={car.featured_image_url}
+                  alt={car.title.rendered}
+                  unoptimized
+                ></Image>
+              </div>
+
               <div className="featured-contet">
                 <h3>{car.title.rendered}</h3>
                 <p>{car.excerpt}</p>

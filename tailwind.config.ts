@@ -31,6 +31,7 @@ export default {
               fontSize: '1.875rem',
               fontWeight: '700',
               color: 'theme("colors.primary")',
+              marginTop: 0,
             },
             h3: {
               fontSize: '1.5rem',
@@ -40,17 +41,12 @@ export default {
             p: {
               fontSize: '1rem',
               lineHeight: '1.5',
-              color: 'var(--color-gray-700)',
+              color: 'var(--foreground)',
             },
             a: {
-              padding: '0.25rem 0.5rem',
               lineHeight: '1.4',    
-              backgroundColor: 'theme("colors.primary")',
-              color: 'var(--color-secondary)',
+              color: 'var(--foreground)',
               textDecoration: 'none',
-              '&:hover': {
-                textDecoration: 'underline',
-              },
             },
             button: {
               display: 'inline-block',
