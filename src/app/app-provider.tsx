@@ -21,23 +21,27 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [menus, setMenus] = useState<IMenu[]>([]);
 
-  //get Page settings
+  //get Page settings - It could be optimize in future
   useEffect(() => {
+    //switching different enviro
+    const apiUrl =
+      process.env.NEXT_PUBLIC_ENV === "staging"
+        ? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+        : process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+
     const fetchPageSettings = async () => {
       try {
-        const response = await fetch(
-          `http://localhost/byd/wp-json/wp/v2/pages/47`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${apiUrl}/v2/pages/47`, {
+          //right now its static to save time -- Note change it and create auth
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const data = await response.json();
         setPage(data);
       } catch (err) {
         setNotifier({
-          message: `Error on getting Page settings in the http://localhost/byd/wp-json/wp/v2/pages/47`,
+          message: `Error on getting Page settings in the ${apiUrl}/wp-json/wp/v2/pages/47`,
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });
@@ -47,23 +51,26 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     fetchPageSettings();
   }, []);
 
-  //get all the cars
+  //get all the cars - It could be optimized
   useEffect(() => {
+    //switching different enviro
+    const apiUrl =
+      process.env.NEXT_PUBLIC_ENV === "staging"
+        ? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+        : process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+
     const fetchCars = async () => {
       try {
-        const response = await fetch(
-          `http://localhost/byd/wp-json/wp/v2/cars`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${apiUrl}/wp/v2/cars`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const data = await response.json();
         setCars(data);
       } catch (err) {
         setNotifier({
-          message: `Error on getting Cars in the http://localhost/byd/wp-json/wp/v2/cars`,
+          message: `Error on getting Cars in the ${apiUrl}/byd/wp-json/wp/v2/cars`,
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });
@@ -73,24 +80,27 @@ const AppProvider: React.FC<Props> = ({ children }) => {
     fetchCars();
   }, []);
 
-  //get WP Menus
+  //get WP Menus - It could be optimize in future
   useEffect(() => {
+    //switching different enviro
+    const apiUrl =
+      process.env.NEXT_PUBLIC_ENV === "staging"
+        ? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+        : process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+
     const fetchMenus = async () => {
       try {
-        const response = await fetch(
-          `http://localhost/byd/wp-json/guevfs-api/v1/menus`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${apiUrl}/guevfs-api/v1/menus`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
         const data = await response.json();
         setMenus(data);
         console.log(data);
       } catch (err) {
         setNotifier({
-          message: `Error on getting Menus in the hhttp://localhost/byd/wp-json/guevfs-api/v1/menus`,
+          message: `Error on getting Menus in the ${apiUrl}/wp-json/guevfs-api/v1/menus`,
           status: MESSAGE_STATUSES.WARNING,
           data: err,
         });
