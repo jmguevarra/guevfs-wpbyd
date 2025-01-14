@@ -1,5 +1,6 @@
-@layer{
-    .rrr{
-        @apply text-blue-700;
+
+@layer components {
+    .menu-item{
+        @apply text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
     }
 }
