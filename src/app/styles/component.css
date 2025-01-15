@@ -34,7 +34,11 @@
     }
 
     .wp-modal-body{
-        @apply bg-white p-6 rounded-lg shadow-lg w-96 transition-all transform relative;
+        @apply bg-white p-6 rounded-lg shadow-lg transition-all transform relative;
     }
     /** End of Modal **/
+
+    .flex-ycenter{
+        @apply flex items-center;
+    }
 }

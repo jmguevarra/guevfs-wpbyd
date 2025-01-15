@@ -82,7 +82,7 @@ const CarCard: React.FC<props> = ({ index, car, ctaText, containerClass }) => {
               </>
             ) : (
               <>
-                <span className="old-price opacity-0">
+                <span className="old-price opacity-0 hidden md:block">
                   {priceFormat(car.acf.specifications.price)}
                 </span>
                 <h4 className="price--text m-0 text-2xl font-black text-blue-700">

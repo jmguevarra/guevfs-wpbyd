@@ -2,7 +2,11 @@
 
 import useWPContext from "@/hooks/usewpcontext";
 
-const Modal = () => {
+interface props {
+  containerWidth?: string;
+}
+
+const Modal: React.FC<props> = ({ containerWidth }) => {
   const { isModalOpen, setIsModalOpen, modalContent } = useWPContext();
 
   if (!isModalOpen) return null;
@@ -14,7 +18,9 @@ const Modal = () => {
 
   return (
     <div className="wp-modal-overlay" onClick={onClose}>
-      <div className={`wp-modal-body`}>
+      <div
+        className={`wp-modal-body ${containerWidth ? containerWidth : "w-96"}`}
+      >
         <a className="modal-btn--closing" onClick={onClose}>
           &times;
         </a>
