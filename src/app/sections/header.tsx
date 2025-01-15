@@ -3,6 +3,7 @@
 import useWPContext from "@/hooks/usewpcontext";
 import { IMenuItem } from "@/types/imenus";
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useState } from "react";
 import { IoCloseOutline } from "react-icons/io5";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -18,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-5">
         <div className="header-wrap flex justify-between items-center flex-wrap lg:flex-nowrap">
           <div className="logo-wrap">
-            <a href="/" className="no-prose">
+            <Link href="/" className="no-prose">
               <Image
                 className="not-prose"
                 src={"/images/byd-logo.png"}
@@ -26,7 +27,7 @@ const Header = () => {
                 height={36}
                 alt="Logo"
               ></Image>
-            </a>
+            </Link>
           </div>
           <div
             className="hamburger-menu lg:hidden"
