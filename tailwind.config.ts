@@ -9,6 +9,15 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        waveUpDown: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        waveUpDown: "waveUpDown 1s infinite ease-in-out",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Modal from "./components/modals/modal";
 import AppProvider from "./app-provider";
-import Header from "./sections/header";
-import Footer from "./sections/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,12 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="wp-byd-wrapper prose">
-          <AppProvider>
-            <Header></Header>
-            {children}
-            <Footer></Footer>
-            <Modal></Modal>
-          </AppProvider>
+          <AppProvider>{children}</AppProvider>
         </div>
       </body>
     </html>

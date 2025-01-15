@@ -7,6 +7,10 @@ import { IMenu } from "@/types/imenus";
 import { Notifier } from "@/types/notifier";
 import { PagePostType } from "@/types/page-post-type";
 import React, { useState, useEffect, ReactNode } from "react";
+import Modal from "./components/modals/modal";
+import Header from "./sections/header";
+import Footer from "./sections/footer";
+import EntranceLoader from "./components/ui/loaders/entrance-loader";
 
 interface Props {
   children: ReactNode;
@@ -24,7 +28,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
   //get Page settings - It could be optimize in future
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
-
     const fetchPageSettings = async () => {
       try {
         const response = await fetch(`${apiUrl}/wp/v2/pages/47`, {
@@ -43,14 +46,12 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         });
       }
     };
-
     fetchPageSettings();
   }, []);
 
   //get all the cars - It could be optimized
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
-
     const fetchCars = async () => {
       try {
         const response = await fetch(`${apiUrl}/wp/v2/cars`, {
@@ -68,14 +69,12 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         });
       }
     };
-
     fetchCars();
   }, []);
 
   //get WP Menus - It could be optimize in future
   useEffect(() => {
     const apiUrl = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
-
     const fetchMenus = async () => {
       try {
         const response = await fetch(`${apiUrl}/guevfs-api/v1/menus`, {
@@ -96,7 +95,6 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         setLoading(false);
       }
     };
-
     fetchMenus();
   }, []);
 
@@ -119,7 +117,16 @@ const AppProvider: React.FC<Props> = ({ children }) => {
         setMenus,
       }}
     >
-      {children}
+      {!loading ? (
+        <>
+          <Header></Header>
+          {children}
+          <Footer></Footer>
+          <Modal></Modal>
+        </>
+      ) : (
+        <EntranceLoader></EntranceLoader>
+      )}
     </WPContext.Provider>
   );
 };
