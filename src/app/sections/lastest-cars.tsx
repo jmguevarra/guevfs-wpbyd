@@ -2,7 +2,6 @@
 
 import useWPContext from "@/hooks/usewpcontext";
 import { CarPostType } from "@/types/car-post-type";
-import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
