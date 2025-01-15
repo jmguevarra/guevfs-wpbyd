@@ -5,7 +5,7 @@
     }
 
     .sec-py{
-        @apply py-7 md:py-14 lg:py-24;
+        @apply py-9 md:py-14 lg:py-24;
     }
 
     .btn-primary{
@@ -22,5 +22,13 @@
 
     .wp-modal-body{
         @apply bg-white p-6 rounded-lg shadow-lg w-96 transition-all transform relative;
+    }
+
+    .menu-item.sm-active-menu{
+        @apply py-2 border-b border-b-gray-500 text-white transition-all duration-700 ps-0;
+    }
+
+    .menu-item.sm-active-menu > a{
+        @apply ps-0 text-white hover:text-primary;
     }
 }

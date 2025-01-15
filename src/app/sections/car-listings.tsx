@@ -23,27 +23,21 @@ const CarListings = () => {
 
   return (
     <div className="wp-section bg-secondary sec-py listing-section">
-      <div className="container mx-auto">
-        <h2 className="mb-4" data-aos="fade-right" data-aos-delay={200}>
-          Car Listings
-        </h2>
-        <p
-          className="max-w-[560px] mb-10"
-          data-aos="fade-right"
+      <div className="container mx-auto px-4 md:px-5">
+        <h2
+          className="mb-10 text-center"
+          data-aos="fade-down"
           data-aos-delay={200}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          pulvinar ut nunc sed efficitur. Aenean ultrices luctus dui nec
-          dignissim. Fusce sed turpis posuere, scelerisque eros quis, varius
-          augue
-        </p>
-        <div className="listing-cars grid grid-cols-4 gap-6">
+          Car Listings
+        </h2>
+        <div className="listing-cars grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 lg:gap-6">
           {cars.map((car: CarPostType, index: number) => (
             <div
               key={car.id}
               data-aos="fade-up"
               data-aos-delay={(index + 1) * 50}
-              className={` group listing-car rounded-xl overflow-hidden`}
+              className={` group listing-car  mb-6 md:mb-0 rounded-xl overflow-hidden`}
             >
               <div
                 className={`next-image-wrapper w-full h-60 relative transition-transform duration-700 group-hover:scale-105`}
@@ -61,7 +55,9 @@ const CarListings = () => {
 
               <div className="listing-contet bg-white px-4 pt-5 pb-7 text-secondary">
                 <h3 className="text-black mb-2">{car.title.rendered}</h3>
-                <p className="not-prose min-h-[84px]">{car.excerpt}</p>
+                <p className="text-black lg:min-h-[112px] md:min-h-[84px]">
+                  {car.excerpt}
+                </p>
                 <a
                   href="#"
                   className={`wp-btn btn-primary`}

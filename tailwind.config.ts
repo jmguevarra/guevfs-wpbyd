@@ -28,7 +28,7 @@ export default {
               color: 'theme("colors.primary")',
             },
             h2: {
-              fontSize: '1.875rem',
+              fontSize: '1.5rem',
               fontWeight: '700',
               color: 'theme("colors.primary")',
               marginTop: 0,
@@ -42,7 +42,7 @@ export default {
             },
             p: {
               fontSize: '1rem',
-              lineHeight: '1.4',
+              lineHeight: '1.3',
               color: 'var(--foreground)',
             },
             a: {
@@ -60,6 +60,20 @@ export default {
             },
           },
         },
+        md: {
+          css: {
+            h2: {
+              fontSize: '1.875rem'
+            },
+          }
+        },
+        lg:{
+          css: {
+            p: {
+              lineHeight: 1.4
+            }
+          }
+        }
       },
       backgroundImage: {
         'slick-overlay': 'linear-gradient(50deg, #0000005c 11%, #00000000 32%)',
