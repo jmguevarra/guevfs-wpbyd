@@ -9,7 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { RiMenuSearchLine } from "react-icons/ri";
 import { PiEngineFill } from "react-icons/pi";
-import { MdElectricBolt } from "react-icons/md";
+import { MdDiscount, MdElectricBolt } from "react-icons/md";
 import { priceFormat } from "@/utils/formatter";
 import { calcDiscoutInCurrency } from "@/utils/discounts";
 
@@ -91,6 +91,12 @@ const CarListings = () => {
                       alt={car.title.rendered}
                       unoptimized
                     ></Image>
+                    {car.acf.promos.on_sale ? (
+                      <div className="discounted-banner">
+                        <MdDiscount className="text-white me-2 text-lg" />
+                        <p className="m-0 text-sm">{`Sale with ${car.acf.promos.discount}% off!`}</p>
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="listing-contet bg-white px-4 pt-5 pb-7 text-secondary">

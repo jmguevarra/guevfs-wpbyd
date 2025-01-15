@@ -31,4 +31,8 @@
     .menu-item.sm-active-menu > a{
         @apply ps-0 text-white hover:text-primary;
     }
+
+    .discounted-banner{
+        @apply  animate-fade-up animate-delay-300 absolute bottom-0 bg-red-400 w-full flex justify-center items-center py-1
+    }
 }
