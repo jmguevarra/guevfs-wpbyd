@@ -40,7 +40,7 @@ const CarListings = () => {
   }
 
   return (
-    <div className="wp-section bg-secondary sec-py listing-section">
+    <div className="wp-section bg-secondary sec-py listing-section min-h-svh">
       <div className="container mx-auto px-4 md:px-5">
         <div className="section-header mb-14 flex flex-wrap justify-between items-center">
           <h2

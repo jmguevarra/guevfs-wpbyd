@@ -12,8 +12,9 @@ interface props {
   index?: number;
   car: CarPostType;
   ctaText?: string;
+  containerClass?: string;
 }
-const CarCard: React.FC<props> = ({ index, car, ctaText }) => {
+const CarCard: React.FC<props> = ({ index, car, ctaText, containerClass }) => {
   const { setIsModalOpen, setModalContent } = useWPContext();
 
   return (
@@ -23,7 +24,11 @@ const CarCard: React.FC<props> = ({ index, car, ctaText }) => {
         key={car.id}
         data-aos="fade-up"
         data-aos-delay={index ? (index + 1) * 50 : 100}
-        className={` group listing-car  mb-6 md:mb-0 rounded-xl overflow-hidden`}
+        className={
+          containerClass
+            ? containerClass
+            : "group listing-car  mb-6 md:mb-0 rounded-xl overflow-hidden"
+        }
       >
         <div
           className={`next-image-wrapper w-full h-60 relative transition-transform duration-700 group-hover:scale-105`}
@@ -45,7 +50,7 @@ const CarCard: React.FC<props> = ({ index, car, ctaText }) => {
           ) : null}
         </div>
 
-        <div className="listing-contet bg-white px-4 pt-5 pb-7 text-secondary">
+        <div className="carcard-content rounded-b-lg bg-white px-4 pt-5 pb-7 text-secondary">
           <h3 className="text-black mb-0">{car.title.rendered}</h3>
           <div className="sub-specs flex items-center mb-3">
             <div className="specs--model flex items-center text-xs">
