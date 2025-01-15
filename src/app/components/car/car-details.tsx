@@ -20,7 +20,7 @@ const CarDetails: React.FC<props> = ({ car }) => {
       </>
     );
 
-  const { specifications, promos } = car.acf;
+  const { promos } = car.acf;
 
   return (
     <>
