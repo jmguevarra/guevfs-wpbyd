@@ -58,7 +58,7 @@ const CarDetails: React.FC<props> = ({ car }) => {
             <li className="car-spec">
               Year Manufactured:{" "}
               <span className="year-manufactured--text">
-                ${specifications.year_of_manufacture}
+                {specifications.year_of_manufacture}
               </span>
             </li>
           </ul>

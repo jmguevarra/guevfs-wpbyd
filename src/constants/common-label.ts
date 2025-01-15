@@ -1,0 +1,1 @@
+export const CTA_TEXT = 'Read More';
