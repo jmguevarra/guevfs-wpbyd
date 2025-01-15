@@ -30,9 +30,7 @@ const Header = () => {
           </div>
           <div
             className="hamburger-menu lg:hidden"
-            onClick={(e) => {
-              setMenuOpen(!menuIsOpen);
-            }}
+            onClick={() => setMenuOpen(!menuIsOpen)}
           >
             {menuIsOpen ? (
               <IoCloseOutline className="text-3xl text-white" />
