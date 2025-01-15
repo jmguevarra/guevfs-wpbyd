@@ -8,6 +8,10 @@ import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { RiMenuSearchLine } from "react-icons/ri";
+import { PiEngineFill } from "react-icons/pi";
+import { MdElectricBolt } from "react-icons/md";
+import { priceFormat } from "@/utils/formatter";
+import { calcDiscoutInCurrency } from "@/utils/discounts";
 
 const CarListings = () => {
   const { cars, setIsModalOpen, setModalContent } = useWPContext();
@@ -90,10 +94,46 @@ const CarListings = () => {
                   </div>
 
                   <div className="listing-contet bg-white px-4 pt-5 pb-7 text-secondary">
-                    <h3 className="text-black mb-2">{car.title.rendered}</h3>
-                    <p className="text-black lg:min-h-[112px] md:min-h-[84px]">
-                      {car.excerpt}
-                    </p>
+                    <h3 className="text-black mb-0">{car.title.rendered}</h3>
+                    <div className="sub-specs flex items-center mb-3">
+                      <div className="specs--model flex items-center text-xs">
+                        <MdElectricBolt className="text-black me-2" />
+                        <span className="model--text text-black">
+                          {car.acf.specifications.model}
+                        </span>
+                      </div>
+                      <span className="inline-block mx-3"> | </span>
+                      <div className="specs--model flex items-center text-xs">
+                        <PiEngineFill className="text-black me-2" />
+                        <span className="model--text text-black">
+                          {car.acf.specifications.engine_size}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="specs--pricing">
+                      {car.acf.promos.on_sale ? (
+                        <>
+                          <span className="old-price text-xs line-through">
+                            {priceFormat(car.acf.specifications.price)}
+                          </span>
+                          <h4 className="price--text m-0 text-2xl font-black text-blue-700">
+                            {calcDiscoutInCurrency(
+                              car.acf.specifications.price,
+                              car.acf.promos.discount
+                            )}
+                          </h4>
+                        </>
+                      ) : (
+                        <>
+                          <span className="old-price opacity-0">
+                            {priceFormat(car.acf.specifications.price)}
+                          </span>
+                          <h4 className="price--text m-0 text-2xl font-black text-blue-700">
+                            {priceFormat(car.acf.specifications.price)}
+                          </h4>
+                        </>
+                      )}
+                    </div>
                     <a
                       href="#"
                       className={`wp-btn btn-primary`}
